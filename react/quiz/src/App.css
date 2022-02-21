@@ -1,0 +1,80 @@
+.isLoading {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4rem;
+}
+
+.start-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+}
+
+.logo {
+  margin: 100px;
+}
+
+
+.choose-icon{
+  display: inline;
+  justify-content: center;
+  margin: 0 auto;
+  float: left;
+}
+
+.choose {
+  font-size: 50px;
+}
+
+.start-page button {
+  background-color: white;
+  width: 400px;
+}
+.quiz-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-title button{
+  font-size: 2em;
+  background-color: aqua;
+  width: 400px;
+}
+
+.start-button button {
+  background-color: gray;
+  font-size: 50px;
+}
+
+.answer {
+  border: 5px solid rgb(90, 98, 117);
+  margin: 10px auto;
+  width: 100%;
+  height: auto;
+}
+
+.answer p {
+  display: inline;
+  margin: 0;
+  float: left;
+}
+
+.isanswer {
+  background-color: tomato;
+}
+
+.tes {
+  float: right;
+}
+
+.time {
+  float: left;
+}
+
+.stop {
+  background-color: gray;
+}

@@ -1,0 +1,146 @@
+.welcome-page{
+    height: 100%;
+    width: 100%;
+    color: rgb(90, 98, 117);
+}
+
+.welcome{
+    height: 750px;
+    width: 500px;
+    margin: 20px auto;
+    border: 5px solid rgb(90, 98, 117);
+    justify-content: center;
+}
+
+.welcome-navbar{
+    justify-content: space-around;
+    display: flex;
+    width: 90%;
+    margin: 20px auto 0 auto;
+    border: 2px solid rgb(90, 98, 117);
+}
+
+.welcome-main{
+    display: flex;
+    flex-direction: column;
+}
+
+#welcome-title{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#welcome-info{
+    margin: 0 auto;
+    color: rgb(90, 98, 117);
+    font-size: 200px;
+}
+
+#welcome-info:hover{
+    cursor: unset !important;
+}
+
+.welcome-record:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.welcome-icon{
+    font-size: 50px;
+    margin: 20px;
+    color: rgb(90, 98, 117);
+}
+
+.welcome-icon:hover{
+    transform: scale(1.5);
+}
+
+.quiz-chooser{
+    display:flex;
+    margin: 0 auto;
+    height: 50px;
+    width: 250px;
+    justify-content: space-evenly;
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(90, 98, 117);
+    border: 2px 2px 2px 2px;
+    border-bottom: 0.5px;
+}
+
+.welcome-hamburger{
+    margin: auto 0;
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+}
+
+.welcome-hamburger-title{
+    margin: auto 0;
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quiz-start{
+    display:flex;
+    margin: 0 auto;
+    height: 50px;
+    width: 250px;
+    justify-content: space-around;
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(90, 98, 117);
+    border: 2px 2px 2px 2px;
+}
+
+.quiz-chooser:hover{
+    background-color: rgb(222,224,227);
+}
+
+.quiz-start:hover{
+    background-color: rgb(222,224,227);
+}
+
+.quiz-choice{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.quiz-choice-button{
+    background-color: white;
+    border-style:solid;
+    border: 2px 2px 2px 2px;
+    border-color: rgb(90, 98, 117);
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+}
+
+.quiz-choice-button:hover{
+    background-color: rgb(222,224,227);
+}
+
+.dropdownlist{
+    margin: 0 auto;
+    width: 250px;
+}
+
+.quiz-choice-button2{
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(90, 98, 117);
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+    border: 2px solid rgb(90, 98, 117);
+}
+
+.quiz-choice-button2:hover{
+    background-color: rgb(222,224,227);
+}

@@ -1,0 +1,13 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+.loginBox {
+    height: 100vh;
+    padding: 15vh 2rem;
+}
+
+.loginBox h1 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
