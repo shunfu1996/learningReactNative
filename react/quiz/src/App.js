@@ -9,42 +9,47 @@ import LogIn from './components/Login/Login';
 import Welcome from './components/Welcome/Welcome';
 import Quiz from './components/Quiz/Quiz';
 import Record from './components/Record/Record';
+import Result from './components/Result/Result';
 import { ProgressBar } from 'react-bootstrap';
 
 function App() {
 
-  // const navigate = useNavigate();
+	// const navigate = useNavigate();
 
-  const [isLoading, setIsLoading] = useState(true);
-  // const [random, setRandom] = useState(Math.floor(Math.random() * 50));
-  const [progressNum, setProgressNum] = useState(0);
+	const [isLoading, setIsLoading] = useState(true);
+	const [progressNum, setProgressNum] = useState(0);
+	const [choose, setChoose] = useState("Choose Quiz")
+	const [selectQuiz, setSelectQuiz] = useState(null)
 
-  useEffect(() => {
-    setInterval(() => setProgressNum(prev => prev + Math.floor(Math.random() * 100)), 500)
-    setTimeout(() => {
-      setIsLoading(false);
-      clearInterval(setProgressNum);
-    }, 2000);
-  // }, [navigate]);
-  }, []);
+	useEffect(() => {
+		const progress = setInterval(() => {
+			setProgressNum(prev => prev + Math.floor(Math.random() * 100))
+		}, 500);
+		setTimeout(() => {
+			setIsLoading(false);
+			clearInterval(progress)
+		}, 2000);
+	}, []);
+	// }, [navigate]);
 
-  return (
-    <BrowserRouter>
-      {isLoading ?
-        <div className='isLoading'>
-          <ProgressBar animated now={progressNum} />
-        </div>
-        :
-        <Routes>
-          <Route path='/' element={<Start />} />
-          <Route path='/login' element={<LogIn />} />
-          <Route path='/welcome' element={<Welcome />} />
-          <Route path='/quiz' element={<Quiz />} />
-          <Route path='/record' element={<Record />} />
-        </Routes>
-      }
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			{isLoading ?
+				<div className='isLoading'>
+					<ProgressBar animated now={progressNum} />
+				</div>
+				:
+				<Routes>
+					<Route path='/' element={<Start choose={choose} setChoose={setChoose} setSelectQuiz={setSelectQuiz} />} />
+					<Route path='/login' element={<LogIn />} />
+					<Route path='/welcome' element={<Welcome />} />
+					<Route path='/quiz' element={<Quiz selectQuiz={selectQuiz} choose={choose} />} />
+					<Route path='/record' element={<Record />} />
+					<Route path='/result' element={<Result choose={choose} />} />
+				</Routes>
+			}
+		</BrowserRouter>
+	);
 }
 
 export default App;

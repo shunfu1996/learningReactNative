@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlinePicture, AiOutlineMail, AiOutlinePrinter } from "react-icons/ai";
 import { BsChatLeft, BsPerson } from "react-icons/bs";
 import { BiTimeFive } from "react-icons/bi";
 import './Welcome.css';
 import { Container, Row } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Nav from '../../components/Nav/Nav';
+import { auth } from '../../util/firebase';
+import { signOut } from "firebase/auth";
 
 
 
@@ -22,26 +25,11 @@ export default function Welcome() {
         setShow(!show)
     }
 
+
     return (
         <div className="welcome-page" >
             <div className="welcome" >
-                <div className="welcome-navbar" >
-                    <a>
-                        <AiOutlinePicture className="welcome-icon" />
-                    </a>
-                    <a>
-                        <BsChatLeft className="welcome-icon" />
-                    </a>
-                    <a>
-                        <AiOutlineMail className="welcome-icon" />
-                    </a>
-                    <a>
-                        <AiOutlinePrinter className="welcome-icon" />
-                    </a>
-                    <a>
-                        <BiTimeFive className="welcome-icon" />
-                    </a>
-                </div>
+                <Nav />
                 <div className="welcome-main">
                     <h1 id="welcome-title">Welcome back</h1>
                     <Link id="welcome-info" to="/record">

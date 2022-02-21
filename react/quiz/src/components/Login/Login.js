@@ -1,4 +1,9 @@
-import "./Login.css";
+// import "./Login.css";
+import "bulma";
+// import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+import "./Login.scss";
+
+
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";

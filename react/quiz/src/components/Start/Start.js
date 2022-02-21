@@ -4,21 +4,33 @@ import { IconContext } from "react-icons";
 import { BiLogIn } from "react-icons/bi";
 import { BsList } from "react-icons/bs";
 import { Container, Row } from 'react-bootstrap';
+import { html, css, js } from '../Data';
 
 
 
 
-export default function Start () {
+export default function Start({ choose, setChoose, setSelectQuiz }) {
 
     const [ show, setShow] = useState(false)
-    const [ choose, setChoose] =useState("Choose Quiz")
+    const [ ready, setReady] = useState(false)
 
     const handleDropDownList = () => {
         setShow(!show)
     }
     const handleChooseQuiz = e => {
         setChoose(e.target.value)
+        setReady(true)
         setShow(!show)
+    }
+
+    const handleStart = () =>{
+        if(choose == 'HTML' ){
+            setSelectQuiz(html)
+        }else if(choose == 'CSS'){
+            setSelectQuiz(css)
+        }else if(choose == 'JS'){
+            setSelectQuiz(js)
+        }
     }
 
 
@@ -59,7 +71,7 @@ export default function Start () {
                 </div> }
                 <div className="start-page start-button">
                     <Link to="/quiz">
-                        <button>
+                        <button onClick={handleStart} disabled={!ready}>
                             Start
                         </button>
                     </Link>

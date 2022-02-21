@@ -1,0 +1,28 @@
+/* .test {
+    justify-content: center;
+    display: flex;
+} */
+
+.question-box p {
+    text-align: center;
+}
+
+.New-Record {
+    color: red;
+    margin: 0%;
+}
+
+.result-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result-button button {
+    width: 200px;
+    margin: 10px 0px;
+    border-radius: 5px;
+}
+
+
+

@@ -1,0 +1,45 @@
+.record-page{
+    height: 100%;
+    width: 100%;
+    color: rgb(90, 98, 117);
+}
+
+.record-main{
+    display: flex;
+    flex-direction: column;
+}
+
+#record-title{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#record-info{
+    margin: 0 auto;
+    color: rgb(90, 98, 117);
+    font-size: 200px;
+}
+
+.record-icon{
+    margin: 0 auto;
+}
+
+.record-icon:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.record-title{
+    color:rgb(147,154,169)
+}
+
+.record-main-icon{
+    display: flex;
+}
+
+.record-changeIcon{
+    font-size: 50px;
+    height: 50px;
+}

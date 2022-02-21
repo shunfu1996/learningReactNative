@@ -75,6 +75,20 @@
   float: left;
 }
 
-.stop {
-  background-color: gray;
+.next-qustion {
+  margin-top: 10px;
+  justify-content: center;
+  align-items: flex-end;
+  display: flex ;
+}
+
+.title-box {
+  border: 3px solid rgb(90, 98, 117);
+  background-color: rgb(90, 98, 117);
+  margin: 0 20px;
+}
+
+.question-box {
+  border: 2px solid rgb(90, 98, 117);
+  margin: 0 20px;
 }

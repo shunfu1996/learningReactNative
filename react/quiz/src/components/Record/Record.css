@@ -1,0 +1,112 @@
+.record-page{
+    height: 100%;
+    width: 100%;
+    color: rgb(90, 98, 117);
+}
+
+.record-main{
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+}
+
+#record-title{
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#record-info{
+    margin: 0 auto;
+    color: rgb(90, 98, 117);
+    font-size: 175px;
+}
+
+.record-icon{
+    margin: 0 auto;
+}
+
+.record-icon:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.record-title{
+    color:rgb(147,154,169);
+    font-size: 40px;
+}
+
+.record-main-icon{
+    display: flex;
+}
+
+.record-changeIcon{
+    font-size: 50px;
+    height: 50px;
+}
+
+.record-profile{
+    border: 2px solid rgb(90,98,117);
+    height: 250px;
+}
+
+.record-dropdownlist{
+    margin: 0 auto;
+    width: 438px;
+}
+
+.record-quiz-chooser{
+    display:flex;
+    margin: 0 auto;
+    height: 50px;
+    width: 438px;
+    justify-content: space-evenly;
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(90, 98, 117);
+    border: 2px 2px 2px 2px;
+    border-top: 0px;
+    border-left: 0px;
+}
+
+.record-choice-button1{
+    background-color: white;
+    border-style:solid;
+    border: 2px 2px 2px 2px;
+    border-color: rgb(90, 98, 117);
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+    border-top: 0;
+    border-left: 0;
+}
+
+.record-choice-button2{
+    background-color: white;
+    border-style:solid;
+    border: 2px 2px 2px 2px;
+    border-color: rgb(90, 98, 117);
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+.record-choice-button3{
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(90, 98, 117);
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+    border: 2px solid rgb(90, 98, 117);
+    border-left: 0;
+}
+
+.profile-record{
+    margin: 10px 0 0 10px;
+}
