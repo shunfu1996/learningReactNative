@@ -3,7 +3,11 @@
     display: flex;
 } */
 
-.question-box p {
+.result-box  {
+    border: 2px solid rgb(90, 98, 117);
+    margin: 0 20px;
+}
+.result-box p {
     text-align: center;
 }
 

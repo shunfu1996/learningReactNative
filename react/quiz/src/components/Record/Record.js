@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Nav from '../../components/Nav/Nav';
-import { BsPerson, BsPlusCircle } from "react-icons/bs";
+import { BsPerson/* , BsPlusCircle */ } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { IoPersonCircle } from 'react-icons/io5';
+/* import { IoPersonCircle } from 'react-icons/io5'; */
 import './Record.css';
 import { Container, Row } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -27,9 +27,9 @@ export default function Info() {
 				<Nav />
 				<div className="record-main">
 					<div className="record-main-icon">
-						<a id="record-info">
-							<IoPersonCircle className="record-icon" href="#" />
-						</a>
+						<Link id="welcome-info" to="/record">
+							<BsPerson className="welcome-record" />
+						</Link>
 					</div>
 					<h2 className="record-title">Profile</h2>
 					<div className="record-profile">
@@ -43,20 +43,20 @@ export default function Info() {
 							<div className="record-dropdownlist">
 								<Container>
 									<Row className="quiz-choice">
-										<button onClick={handleChooseQuiz} className="record-choice-button1" value='HTML' >HTML</button>
+										<button onClick={handleChooseQuiz} className="record-choice-button1" value='HTML'>HTML</button>
 									</Row>
 									<Row className="quiz-choice">
-										<button onClick={handleChooseQuiz} className="record-choice-button2" value='CSS' >CSS</button>
+										<button onClick={handleChooseQuiz} className="record-choice-button2" value='CSS'>CSS</button>
 									</Row>
 									<Row className="quiz-choice">
-										<button onClick={handleChooseQuiz} className="record-choice-button3" value='JS' >JS</button>
+										<button onClick={handleChooseQuiz} className="record-choice-button3" value='JS'>JS</button>
 									</Row>
 								</Container>
 							</div>}
 							{!show && <div className="profile-record">
-							<h3 >Score: 8/15</h3>
-							<h3 >Finished date: 2020/12/12</h3>
-							<h3 >Used time: 14mins 30s</h3>
+							<h3>Score: 8/15</h3>
+							<h3>Finished date: 2020/12/12</h3>
+							<h3>Used time: 14mins 30s</h3>
 						</div>}
 					</div>
 				</div>

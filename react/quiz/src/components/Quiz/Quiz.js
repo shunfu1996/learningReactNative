@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function Quiz({ selectQuiz, choose }) {
+export default function Quiz({ selectQuiz, choose, setScore }) {
     const [selectA, setSelectA] = useState(false)
     const [selectB, setSelectB] = useState(false)
     const [selectC, setSelectC] = useState(false)
@@ -25,8 +25,6 @@ export default function Quiz({ selectQuiz, choose }) {
     const handleRandomIndex = () => {
         setRandomIndex(randomIndex.sort(() => Math.random() - 0.5))
     }
-
-    const [score, setScore] = useState(0);
 
     const toggle = () => {
         setIsActive(!isActive);
@@ -77,7 +75,7 @@ export default function Quiz({ selectQuiz, choose }) {
         handleRandomIndex()
         setQuestionIndex(questionIndex + 1)
         if (selectQuiz[questionIndex].correntAnswer === selectQuiz[questionIndex].answer[randomIndex[0]]) {
-            setScore(score + 1)
+            setScore(prev => prev + 1)
         }
     }
 
@@ -108,8 +106,8 @@ export default function Quiz({ selectQuiz, choose }) {
             <div className='title-box'>
                 <h1>{choose} Quiz</h1>
             </div>
-            <div className='question-box'>
-                {isActive &&
+            <div className={isActive ? 'question-box' : 'question-box pause'}>
+                {isActive ?
                     <div>
                         <p>Q{questionIndex + 1}: {selectQuiz[questionIndex].questionTitle}</p>
                         <Container>
@@ -156,20 +154,26 @@ export default function Quiz({ selectQuiz, choose }) {
                                 </Col>
                             </Row>
                         </Container>
-                    </div>}
+                    </div>
+                    : <div className="pasue-logo"><IconContext.Provider value={{ size: "150px" }}>
+                        <BsStopCircleFill />
+                    </IconContext.Provider></div>}
             </div>
             <div className='next-qustion' >
                 <button disabled={questionIndex <= 0} onClick={() => setQuestionIndex(questionIndex - 1)}>
                     Back
                 </button>
-                <button disabled={questionIndex >= 4} onClick={handleNext}>
-                    Next
-                </button>
-                <Link to="/result">
-                    <button /* onClick={handleComplete} */>
-                        Complete
+                {questionIndex !== selectQuiz.length - 1 ?
+                    <button onClick={handleNext}>
+                        Next
                     </button>
-                </Link>
+                    :
+                    <Link to="/result">
+                        <button /* onClick={handleComplete} */>
+                            Complete
+                        </button>
+                    </Link>
+                }
             </div>
         </div>
     )

@@ -1,16 +1,19 @@
-// import "./Login.css";
 import "bulma";
 // import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
-import "./Login.scss";
+// import "./Login.scss";
 
 
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { FaLock } from "react-icons/fa";
-import { IoIosAddCircle } from "react-icons/io";
+import { IoIosAddCircle, IoMdArrowRoundBack } from "react-icons/io";
+import { MdArrowBack } from 'react-icons/md'
 import { auth } from "../../util/firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import "./Login.css";
+import { BsPerson } from 'react-icons/bs';
+
 
 export default function LogIn() {
 
@@ -63,9 +66,9 @@ export default function LogIn() {
     const handleSignUp = e => {
         e.preventDefault()
         if (signUpData.password !== signUpData.confirmPassword) {
-			alert("Please confirm that password are the same!");
-			return;
-		}
+            alert("Please confirm that password are the same!");
+            return;
+        }
         createUserWithEmailAndPassword(auth, signUpData.email, signUpData.password)
             .then(() => {
                 navigate("/welcome/");
@@ -74,48 +77,56 @@ export default function LogIn() {
     };
 
     return (
-        <div className="loginBox">
+        <div >
             <Link to="/welcome">go to Welcome page</Link>
             {isSignIn ?
-                <>
-                    <h1>Sign in</h1>
-                    <div className="field">
-                        <label className="label">Email</label>
-                        <div className="control has-icons-left has-icons-right">
-                            <input className="input" type="email" name="email" placeholder="example@gmail.com" value={signInData.email} onChange={handleSignInDataChange} />
-                            <span className="icon is-left">
-                                <MdEmail />
-                            </span>
-                            <span className="icon is-right" onClick={() => console.log(123)}>
-                                <IoIosAddCircle />
-                            </span>
+                <div className="welcome">
+                    <a onClick={handleCancelSignIn} >
+                    <IoMdArrowRoundBack className="back-button" />
+                    </a>
+                    <div className="login-main">
+                    <h2 className="quiz-title">Quiz Game</h2>
+                    <BsPerson className="quiz-logo" />
+                        
+                        <div className="field">
+                            <label className="label">Log in</label>
+                            <div className="control has-icons-left has-icons-right">
+                                <input className="input" type="email" name="email" placeholder="UserName/Email" value={signInData.email} onChange={handleSignInDataChange} />
+                                <span className="icon is-left">
+                                    <MdEmail />
+                                </span>
+                                <span className="icon is-right" onClick={() => console.log(123)}>
+                                    <IoIosAddCircle />
+                                </span>
+                            </div>
+                        </div>
+                        <div className="field">
+                            {/* <label className="label">Password</label> */}
+                            <div className="control has-icons-left has-icons-right">
+                                <input className="input" type="password" name="password" placeholder="Password" value={signInData.password} onChange={handleSignInDataChange} />
+                                <span className="icon is-left">
+                                    <FaLock />
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="field is-grouped">
+                            <div className="control">
+                                <button className="login-button" onClick={handleSignIn}>Submit</button>
+                            </div>
+                            {/* <div className="control">
+                                <button className="login-button" onClick={handleCancelSignIn}>Cancel</button>
+                            </div> */}
+                            <div className="control">
+                                <button className="login-button" onClick={() => setIsSignIn(false)}>Sign Up</button>
+                            </div>
                         </div>
                     </div>
-                    <div className="field">
-                        <label className="label">Password</label>
-                        <div className="control has-icons-left has-icons-right">
-                            <input className="input" type="password" name="password" placeholder="******" value={signInData.password} onChange={handleSignInDataChange} />
-                            <span className="icon is-left">
-                                <FaLock />
-                            </span>
-                        </div>
-                    </div>
+                </div> : <div className="welcome">
+                    <div className="sign-up-main" >
 
-                    <div className="field is-grouped">
-                        <div className="control">
-                            <button className="button is-link" onClick={handleSignIn}>Submit</button>
-                        </div>
-                        <div className="control">
-                            <button className="button is-link is-light" onClick={handleCancelSignIn}>Cancel</button>
-                        </div>
-                        <div className="control">
-                            <button className="button is-link is-light" onClick={() => setIsSignIn(false)}>Sign Up</button>
-                        </div>
-                    </div>
-
-                </> : <>
-
-                    <h1>Sign up</h1>
+                    
+                    <h2 className="quiz-title">Sign up</h2>
                     <div className="field">
                         <label className="label">Email</label>
                         <div className="control has-icons-left has-icons-right">
@@ -146,13 +157,14 @@ export default function LogIn() {
 
                     <div className="field is-grouped">
                         <div className="control">
-                            <button className="button is-link" onClick={handleSignUp}>Submit</button>
+                            <button className="login-button" onClick={handleSignUp}>Submit</button>
                         </div>
                         <div className="control">
-                            <button className="button is-link is-light" onClick={() => setIsSignIn(true)}>Go Back</button>
+                            <button className="login-button" onClick={() => setIsSignIn(true)}>Go Back</button>
+                        </div>
                         </div>
                     </div>
-                </>}
+                </div>}
         </div>
     )
 }

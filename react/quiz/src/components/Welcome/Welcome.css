@@ -84,6 +84,7 @@
 }
 
 .quiz-start{
+    color: rgb(90, 98, 117);
     display:flex;
     margin: 0 auto;
     height: 50px;
@@ -92,7 +93,9 @@
     background-color: white;
     border-style:solid;
     border-color: rgb(90, 98, 117);
-    border: 2px 2px 2px 2px;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .quiz-chooser:hover{
@@ -113,12 +116,15 @@
 .quiz-choice-button{
     background-color: white;
     border-style:solid;
-    border: 2px 2px 2px 2px;
     border-color: rgb(90, 98, 117);
     color: rgb(90, 98, 117);
     font-size: 20px;
     font-weight: bold;
     border-bottom: 0;
+}
+
+a{
+    text-decoration: none !important;
 }
 
 .quiz-choice-button:hover{

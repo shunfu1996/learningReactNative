@@ -2,6 +2,9 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth"
 
+/* import { collection, getDocs } from "firebase/firestore"; */
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyAEF2wnnQG9x21IbvXQPDeD4pcPzPfuWpY",
     authDomain: "sample-quiz-game.firebaseapp.com",
@@ -16,3 +19,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export const auth = getAuth();
+
+/* export const db = getDocs();
+
+async function readAllUsers (){
+    try {
+        const snapshot = await db.collection("user").where("isOnline", "==", true).get();
+        
+        console.log(`Found ${snapshot.size}x user(s).`);
+        const docs =snapshot.docs;
+        docs.forEach((docSnapshot) => {
+            console.log(docSnapshot.id, docSnapshot.data());
+        });
+    } catch (err) {
+        console.log("error");
+    }
+}
+
+readAllUsers();
+ */

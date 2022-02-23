@@ -1,3 +1,4 @@
+/* eslint-disable */
 const html = [
     {
         questionNumber: 1,
@@ -113,6 +114,7 @@ const css = [
         correctAnswer: "Classes can be used multiple times per page but not within the same element."
     },
 ]
+
 const js = [
     {
         questionNumber: 1,
@@ -172,5 +174,3 @@ const js = [
 ]
 
 export { html, css, js };
-
-

@@ -91,4 +91,15 @@
 .question-box {
   border: 2px solid rgb(90, 98, 117);
   margin: 0 20px;
+  height: 80%;
+}
+
+.pause {
+  background-color: grey;
+}
+
+.pasue-logo {
+  justify-content: center;
+  display: flex;
+  margin-top: 200px;
 }

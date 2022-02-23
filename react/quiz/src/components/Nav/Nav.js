@@ -1,7 +1,7 @@
 import React from 'react';
-import { AiOutlinePicture, AiOutlineMail, AiOutlinePrinter, AiOutlinePlayCircle } from "react-icons/ai";
-import { BsChatLeft, BsPlay } from "react-icons/bs";
-import { BiTimeFive } from "react-icons/bi";
+import { AiOutlinePicture/* , AiOutlineMail */, AiOutlinePrinter, AiOutlinePlayCircle } from "react-icons/ai";
+import { BsChatLeft/* , BsPlay */ } from "react-icons/bs";
+/* import { BiTimeFive } from "react-icons/bi"; */
 import { Link, useNavigate } from "react-router-dom";
 import { FiLogOut } from 'react-icons/fi';
 import { auth } from '../../util/firebase';

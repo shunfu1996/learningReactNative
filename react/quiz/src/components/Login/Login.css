@@ -11,3 +11,59 @@
     font-size: 32px;
     font-weight: bold;
 }
+
+.field{
+    color:rgb(147,154,169);
+    width: 80%;
+}
+
+.label{
+    color:rgb(147,154,169);
+}
+
+.login-main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.input:focus{
+    outline: 2px solid rgb(66, 165, 245);
+    border: none;
+}
+
+.login-button{
+    background-color: white;
+    border-style:solid;
+    border-color: rgb(90, 98, 117);
+    color: rgb(90, 98, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 0;
+    border: 2px solid rgb(90, 98, 117);
+}
+
+.back-button{
+    font-size: 75px;
+    color: rgb(90,98,117);
+}
+
+.quiz-title{
+    color: rgb(90, 98, 117);
+    font-size: bold;
+}
+
+.quiz-logo{
+    font-size: 100px;
+    color: rgb(90, 98, 117);
+}
+
+.sign-up-main{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 150px;
+}
