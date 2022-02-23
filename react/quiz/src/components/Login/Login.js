@@ -11,7 +11,7 @@ import { IoIosAddCircle, IoMdArrowRoundBack } from "react-icons/io";
 import { MdArrowBack } from 'react-icons/md'
 import { auth } from "../../util/firebase";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import "./Login.css";
+import "./Login.scss";
 import { BsPerson } from 'react-icons/bs';
 
 
@@ -44,7 +44,7 @@ export default function LogIn() {
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user) {
-                navigate("/login/");
+                navigate("/welcome/");
             }
         });
     }, [navigate]);
@@ -82,14 +82,14 @@ export default function LogIn() {
             {isSignIn ?
                 <div className="welcome">
                     <a onClick={handleCancelSignIn} >
-                    <IoMdArrowRoundBack className="back-button" />
+                        <IoMdArrowRoundBack />
                     </a>
                     <div className="login-main">
-                    <h2 className="quiz-title">Quiz Game</h2>
-                    <BsPerson className="quiz-logo" />
-                        
+                        <h2>Quiz Game</h2>
+                        <BsPerson className="quiz-logo" />
+
                         <div className="field">
-                            <label className="label">Log in</label>
+                            <label>Log in</label>
                             <div className="control has-icons-left has-icons-right">
                                 <input className="input" type="email" name="email" placeholder="UserName/Email" value={signInData.email} onChange={handleSignInDataChange} />
                                 <span className="icon is-left">
@@ -101,7 +101,7 @@ export default function LogIn() {
                             </div>
                         </div>
                         <div className="field">
-                            {/* <label className="label">Password</label> */}
+                            {/* <label>Password</label> */}
                             <div className="control has-icons-left has-icons-right">
                                 <input className="input" type="password" name="password" placeholder="Password" value={signInData.password} onChange={handleSignInDataChange} />
                                 <span className="icon is-left">
@@ -122,46 +122,47 @@ export default function LogIn() {
                             </div>
                         </div>
                     </div>
-                </div> : <div className="welcome">
-                    <div className="sign-up-main" >
+                </div>
+                :
+                <div className="welcome">
+                    <div className="sign-up-main">
 
-                    
-                    <h2 className="quiz-title">Sign up</h2>
-                    <div className="field">
-                        <label className="label">Email</label>
-                        <div className="control has-icons-left has-icons-right">
-                            <input className="input" type="email" name="email" placeholder="example@gmail.com" value={signUpData.email} onChange={handleSignUpDataChange} />
-                            <span className="icon is-left">
-                                <MdEmail />
-                            </span>
+                        <h2 className="quiz-title">Sign up</h2>
+                        <div className="field">
+                            <label>Email</label>
+                            <div className="control has-icons-left has-icons-right">
+                                <input className="input" type="email" name="email" placeholder="example@gmail.com" value={signUpData.email} onChange={handleSignUpDataChange} />
+                                <span className="icon is-left">
+                                    <MdEmail />
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="field">
-                        <label className="label">Password</label>
-                        <div className="control has-icons-left has-icons-right">
-                            <input className="input" type="password" name="password" placeholder="******" value={signUpData.password} onChange={handleSignUpDataChange} />
-                            <span className="icon is-left">
-                                <FaLock />
-                            </span>
+                        <div className="field">
+                            <label>Password</label>
+                            <div className="control has-icons-left has-icons-right">
+                                <input className="input" type="password" name="password" placeholder="******" value={signUpData.password} onChange={handleSignUpDataChange} />
+                                <span className="icon is-left">
+                                    <FaLock />
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div className="field">
-                        <label className="label">Confirm Password</label>
-                        <div className="control has-icons-left has-icons-right">
-                            <input className="input" type="password" name="confirmPassword" placeholder="******" value={signUpData.confirmPassword} onChange={handleSignUpDataChange} />
-                            <span className="icon is-left">
-                                <FaLock />
-                            </span>
+                        <div className="field">
+                            <label>Confirm Password</label>
+                            <div className="control has-icons-left has-icons-right">
+                                <input className="input" type="password" name="confirmPassword" placeholder="******" value={signUpData.confirmPassword} onChange={handleSignUpDataChange} />
+                                <span className="icon is-left">
+                                    <FaLock />
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="field is-grouped">
-                        <div className="control">
-                            <button className="login-button" onClick={handleSignUp}>Submit</button>
-                        </div>
-                        <div className="control">
-                            <button className="login-button" onClick={() => setIsSignIn(true)}>Go Back</button>
-                        </div>
+                        <div className="field is-grouped">
+                            <div className="control">
+                                <button onClick={handleSignUp}>Submit</button>
+                            </div>
+                            <div className="control">
+                                <button onClick={() => setIsSignIn(true)}>Go Back</button>
+                            </div>
                         </div>
                     </div>
                 </div>}

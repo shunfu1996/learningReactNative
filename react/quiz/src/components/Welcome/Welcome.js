@@ -34,7 +34,6 @@ export default function Welcome({ choose, setChoose, setSelectQuiz }) {
         }else if(choose === 'JS'){
             setSelectQuiz(js)
         }
-        return setChoose("Choose Quiz")
     }
 
 

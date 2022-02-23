@@ -2,6 +2,10 @@ import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth"
 
+import { getFirestore } from "firebase/firestore"
+import { collection, getDocs, addDoc } from "firebase/firestore"; 
+import { GiConsoleController } from "react-icons/gi";
+
 /* import { collection, getDocs } from "firebase/firestore"; */
 
 
@@ -20,21 +24,22 @@ const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
 export const auth = getAuth();
 
-/* export const db = getDocs();
+export const dbFirebase = getFirestore();
 
-async function readAllUsers (){
-    try {
-        const snapshot = await db.collection("user").where("isOnline", "==", true).get();
-        
-        console.log(`Found ${snapshot.size}x user(s).`);
-        const docs =snapshot.docs;
-        docs.forEach((docSnapshot) => {
-            console.log(docSnapshot.id, docSnapshot.data());
-        });
-    } catch (err) {
-        console.log("error");
-    }
-}
-
-readAllUsers();
- */
+export const querySnapshot = getDocs(collection(dbFirebase, "user"));
+console.log(`firestore ${querySnapshot}`)
+/* querySnapshot.forEach((doc) => {
+  console.log(`${doc}`);
+}); */
+/* 
+try {
+    const docRef = addDoc(collection(dbFirebase, "users"), {
+      first: "Ada",
+      last: "Lovelace",
+      born: 1815
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+   */

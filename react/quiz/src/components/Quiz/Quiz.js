@@ -10,13 +10,14 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function Quiz({ selectQuiz, choose, setScore }) {
+export default function Quiz({ seconds, setSeconds, choose, score, setScore, selectQuiz }) {
     const [selectA, setSelectA] = useState(false)
     const [selectB, setSelectB] = useState(false)
     const [selectC, setSelectC] = useState(false)
     const [selectD, setSelectD] = useState(false)
+    const [chooseAnw, setChooseAnw] = useState(null)
 
-    const [seconds, setSeconds] = useState(0);
+    /* const [seconds, setSeconds] = useState(0); */
     const [isActive, setIsActive] = useState(true);
 
     const [questionIndex, setQuestionIndex] = useState(0);
@@ -47,24 +48,28 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
         setSelectB(false)
         setSelectC(false)
         setSelectD(false)
+        setChooseAnw(document.getElementById("A").textContent) 
     }
     const handleChooseB = () => {
         setSelectA(false)
         setSelectB(true)
         setSelectC(false)
         setSelectD(false)
+        setChooseAnw(document.getElementById("B").textContent) 
     }
     const handleChooseC = () => {
         setSelectA(false)
         setSelectB(false)
         setSelectC(true)
         setSelectD(false)
+        setChooseAnw(document.getElementById("C").textContent) 
     }
     const handleChooseD = () => {
         setSelectA(false)
         setSelectB(false)
         setSelectC(false)
         setSelectD(true)
+        setChooseAnw(document.getElementById("D").textContent)
     }
 
     const handleNext = () => {
@@ -72,10 +77,12 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
         setSelectB(false)
         setSelectC(false)
         setSelectD(false)
-        handleRandomIndex()
-        setQuestionIndex(questionIndex + 1)
-        if (selectQuiz[questionIndex].correntAnswer === selectQuiz[questionIndex].answer[randomIndex[0]]) {
+        if (chooseAnw === selectQuiz[questionIndex].correctAnswer) {
             setScore(prev => prev + 1)
+        }
+        if (questionIndex !== selectQuiz.length - 1) {
+            handleRandomIndex()
+            setQuestionIndex(questionIndex + 1)
         }
     }
 
@@ -95,7 +102,7 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
                     </Col>
                     <Col>
                         <div className="time">
-                            {seconds}
+                            {300-seconds}s
                             <IconContext.Provider value={{ className: "choose-anw" }}>
                                 <BiTimer />
                             </IconContext.Provider>
@@ -114,7 +121,8 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
                             <Row>
                                 <Col md={6}>
                                     <button onClick={handleChooseA} className={selectA ? "isanswer answer" : "answer"} >
-                                        <p>A. {selectQuiz[questionIndex].answer[randomIndex[0]]}</p>
+                                        {/* <p>A.</p><p id="A" >{selectQuiz[questionIndex].answer[randomIndex[0]]}</p> */}
+                                        <p>A.</p><div id="A" value={selectQuiz[questionIndex].answer[randomIndex[0]]}>{selectQuiz[questionIndex].answer[randomIndex[0]]}</div>
                                         <div className="tes">
                                             <IconContext.Provider value={{ className: "choose-anw" }}>
                                                 {!selectA ? <MdRadioButtonUnchecked /> : <MdRadioButtonChecked />}
@@ -124,7 +132,7 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
                                 </Col>
                                 <Col md={6}>
                                     <button onClick={handleChooseB} className={selectB ? "isanswer answer" : "answer"} >
-                                        <p>B. {selectQuiz[questionIndex].answer[randomIndex[1]]}</p>
+                                        <p>B.</p><p id="B">{selectQuiz[questionIndex].answer[randomIndex[1]]}</p>
                                         <div className="tes">
                                             <IconContext.Provider value={{ className: "choose-anw" }}>
                                                 {!selectB ? <MdRadioButtonUnchecked /> : <MdRadioButtonChecked />}
@@ -134,7 +142,7 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
                                 </Col>
                                 <Col md={6}>
                                     <button onClick={handleChooseC} className={selectC ? "isanswer answer" : "answer"} >
-                                        <p>C. {selectQuiz[questionIndex].answer[randomIndex[2]]}</p>
+                                        <p>C.</p><p id="C">{selectQuiz[questionIndex].answer[randomIndex[2]]}</p>
                                         <div className="tes">
                                             <IconContext.Provider value={{ className: "choose-anw" }}>
                                                 {!selectC ? <MdRadioButtonUnchecked /> : <MdRadioButtonChecked />}
@@ -144,7 +152,7 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
                                 </Col>
                                 <Col md={6}>
                                     <button onClick={handleChooseD} className={selectD ? "isanswer answer" : "answer"} >
-                                        <p>D. {selectQuiz[questionIndex].answer[randomIndex[3]]}</p>
+                                        <p>D.</p><p id="D">{selectQuiz[questionIndex].answer[randomIndex[3]]}</p>
                                         <div className="tes">
                                             <IconContext.Provider value={{ className: "choose-anw" }}>
                                                 {!selectD ? <MdRadioButtonUnchecked /> : <MdRadioButtonChecked />}
@@ -169,7 +177,7 @@ export default function Quiz({ selectQuiz, choose, setScore }) {
                     </button>
                     :
                     <Link to="/result">
-                        <button /* onClick={handleComplete} */>
+                        <button onClick={handleNext}>
                             Complete
                         </button>
                     </Link>
