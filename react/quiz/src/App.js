@@ -17,6 +17,7 @@ function App() {
 	const [selectQuiz, setSelectQuiz] = useState(null)
     const [score, setScore] = useState(0);
 
+	
 	useEffect(() => {
 		const progress = setInterval(() => {
 			setProgressNum(prev => prev + Math.floor(Math.random() * 100))
