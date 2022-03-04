@@ -17,7 +17,10 @@ function App() {
 	const [selectQuiz, setSelectQuiz] = useState(null)
     const [score, setScore] = useState(0);
 
-	
+
+	const [seconds, setSeconds] = useState(0);
+
+
 	useEffect(() => {
 		const progress = setInterval(() => {
 			setProgressNum(prev => prev + Math.floor(Math.random() * 100))
@@ -39,9 +42,9 @@ function App() {
 					<Route path='/' element={<Start choose={choose} setChoose={setChoose} setSelectQuiz={setSelectQuiz} />} />
 					<Route path='/login' element={<LogIn />} />
 					<Route path='/welcome' element={<Welcome choose={choose} setChoose={setChoose} setSelectQuiz={setSelectQuiz} />} />
-					<Route path='/quiz' element={<Quiz selectQuiz={selectQuiz} choose={choose} setScore={setScore} />} />
+					<Route path='/quiz' element={<Quiz seconds={seconds} setSeconds={setSeconds} choose={choose} score={score} setScore={setScore} selectQuiz={selectQuiz} />} />
 					<Route path='/record' element={<Record />} />
-					<Route path='/result' element={<Result choose={choose} score={score} />} />
+					<Route path='/result' element={<Result seconds={seconds} setSeconds={setSeconds} choose={choose} setChoose={setChoose} score={score} setScore={setScore} />} />
 				</Routes>
 			}
 		</BrowserRouter>
