@@ -3,7 +3,7 @@ import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth"
 
 import { getFirestore } from "firebase/firestore"
-import { collection, getDocs, addDoc } from "firebase/firestore"; 
+import { doc, collection, getDocs, addDoc } from "firebase/firestore"; 
 import { GiConsoleController } from "react-icons/gi";
 
 /* import { collection, getDocs } from "firebase/firestore"; */
@@ -26,8 +26,8 @@ export const auth = getAuth();
 
 export const dbFirebase = getFirestore();
 
-export const querySnapshot = getDocs(collection(dbFirebase, "user"));
-console.log(`firestore ${querySnapshot}`)
+
+export const querySnapshot = getDocs(collection(dbFirebase, "brianquiz@gmail.com"));
 /* querySnapshot.forEach((doc) => {
   console.log(`${doc}`);
 }); */

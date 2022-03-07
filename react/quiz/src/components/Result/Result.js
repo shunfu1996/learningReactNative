@@ -6,8 +6,8 @@ import { GrPowerReset } from "react-icons/gr";
 import { MdPreview } from "react-icons/md";
 import { BsList, BsFillShareFill } from "react-icons/bs";
 
-import { collection, getDocs, addDoc } from "firebase/firestore";
-import { dbFirebase } from "../../util/firebase";
+import { doc, collection, getDocs, addDoc } from "firebase/firestore";
+import { dbFirebase, querySnapshot } from "../../util/firebase";
 // import { auth } from "../../util/firebase";
 import { getAuth } from "firebase/auth";
 
@@ -30,16 +30,21 @@ export default function Result({ seconds, setSeconds, choose, setChoose, score, 
 
     const handleFirestore = () => {
         try {
+            /* const email = userInfo.email */
             const docRef = addDoc(collection(dbFirebase, userInfo.email), {
                 score: { score },
                 chooseQuiz: { choose },
                 time: `${seconds}s`
             });
+
             console.log("Document written with ID: ", docRef.id);
+            /* console.log("Document written with ID: ", userInfo); */
         } catch (e) {
             console.error("Error adding document: ", e);
         }
     }
+    /* console.log("Document data:", querySnapshot.data()) */
+    
 
     const handleRestart = () => {
         setScore(0);
@@ -67,10 +72,10 @@ export default function Result({ seconds, setSeconds, choose, setChoose, score, 
                 </div>
             </div>
             <div className='result'>
-                <h1>The Best Result</h1>
+                <p>The Best Result</p>
             </div>
             <div className='title-box'>
-                <h1>{choose} Quiz</h1>
+                <p>{choose} Quiz</p>
             </div>
             <div className='result-box'>
                 <div>

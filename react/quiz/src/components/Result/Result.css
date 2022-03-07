@@ -23,6 +23,7 @@
 }
 
 .result-button button {
+    font-size: 20px;
     width: 200px;
     margin: 10px 0px;
     border-radius: 5px;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
 import { BsPerson/* , BsPlusCircle */ } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -7,6 +7,10 @@ import './Record.scss';
 import { Container, Row } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
+import { dbFirebase } from "../../util/firebase"; // get dbFirebase
+import { collection, getDocs } from "firebase/firestore";  // get firestore record
+
+import { getAuth } from "firebase/auth";// get email
 
 export default function Info() {
 	const [show, setShow] = useState(false);
@@ -20,6 +24,26 @@ export default function Info() {
 		setChoose(e.target.value)
 		setShow(!show)
 	}
+
+	/* const [userEmail, setUserEmail] = useState({
+        email: '',
+    });
+    const user = getAuth().currentUser;
+    useEffect(() => {
+        if (user !== null) {
+            setUserEmail(prevUserInfo => {
+                return {
+                    ...prevUserInfo,
+                    email: user.email
+                }
+            })
+        }
+    }, [user]) */
+
+	/* const query = getDocs(collection(dbFirebase, userEmail.email)); // get firestore record
+	querySnapshot.forEach((doc) => {
+	console.log(`${doc.id} => ${doc.data()}`);
+	}); */
 
 	return (
 		<div className="record-page">

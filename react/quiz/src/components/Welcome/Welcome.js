@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link/* , useNavigate */ } from "react-router-dom";
 import { /* BsChatLeft, */ BsPerson } from "react-icons/bs";
 /* import { AiOutlinePicture, AiOutlineMail, AiOutlinePrinter } from "react-icons/ai";
@@ -10,6 +10,8 @@ import { Container, Row } from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import Nav from '../../components/Nav/Nav';
 import { html, css, js } from '../Data';
+
+import { getAuth } from "firebase/auth";// get email
 
 
 export default function Welcome({ choose, setChoose, setSelectQuiz }) {
@@ -29,6 +31,7 @@ export default function Welcome({ choose, setChoose, setSelectQuiz }) {
     const handleStart = () =>{
         if(choose === 'HTML' ){
             setSelectQuiz(html)
+            console.log(userEmail)
         }else if(choose === 'CSS'){
             setSelectQuiz(css)
         }else if(choose === 'JS'){
@@ -36,13 +39,27 @@ export default function Welcome({ choose, setChoose, setSelectQuiz }) {
         }
     }
 
+    const [userEmail, setUserEmail] = useState({
+        email: '',
+    });
+    const user = getAuth().currentUser;
+    useEffect(() => {
+        const myName = user.email.split("@");
+        setUserEmail(prevUserInfo => {
+            return {
+                ...prevUserInfo,
+                email: myName[0]
+            }
+        })
+    }, [user.email])
+
 
     return (
         <div className="welcome-page" >
             <div className="welcome" >
                 <Nav />
                 <div className="welcome-main">
-                    <h1 id="welcome-title">Welcome back</h1>
+                    <h1 id="welcome-title">Welcome back: {userEmail.email} </h1>
                     <Link id="welcome-info" to="/record">
                         <BsPerson className="welcome-record" />
                     </Link>
