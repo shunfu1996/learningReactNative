@@ -17,7 +17,9 @@ function App() {
 	const [selectQuiz, setSelectQuiz] = useState(null)
     const [score, setScore] = useState(0);
 
+
 	const [seconds, setSeconds] = useState(0);
+
 
 	useEffect(() => {
 		const progress = setInterval(() => {
